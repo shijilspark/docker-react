@@ -3,18 +3,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t shijilspark/docker-react -f Dockerfile.dev .
+  - docker build -t shijilspark/dockerv1 -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true shijilspark/docker-react npm run test
+  - docker run -e CI=true shijilspark/dockerv1 npm run test
 
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
-  app: "docker-react"
-  env: "Dockerreact-env"
+  app: "dockerv1"
+  env: "Dockerv1-env"
   bucket_name: "elasticbeanstalk-us-east-1-268924540077"
-  bucket_path: "docker-react"
+  bucket_path: "dockerv1"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
