@@ -3,7 +3,7 @@ services:
   - docker
 
 build_install:
-  - docker build -t shijilspark/docker-react -f Dockerfile.dev
+  - docker build -t shijilspark/docker-react -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true shijilspark/docker-react npm run test
